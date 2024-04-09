@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shoppingApp',
+        'NAME': 'database-1',
         'USER': 'postgres',
         'PASSWORD': 'mysecretpassword',
-        'HOST': 'database-1.cvioakq8we4f.eu-north-1.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }

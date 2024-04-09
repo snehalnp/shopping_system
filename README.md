@@ -1,4 +1,4 @@
-Shopping Mall Backend
+SHOPPING MALL BACKEND
 This is a Django and Django Rest Framework (DRF) backend for an on-counter billing system for a small-scale shopping mall.
 
 Features

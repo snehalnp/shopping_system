@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'shoppingApp',
         'USER': 'postgres',
         'PASSWORD': 'mysecretpassword',
-        'HOST': 'localhost',
+        'HOST': 'database-1.cvioakq8we4f.eu-north-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }

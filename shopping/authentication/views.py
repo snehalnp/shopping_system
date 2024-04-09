@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .serializers import EmployeeSerializer, ProductSerializer, CustomerSerializer
+from .serializers import EmployeeSerializer, ProductSerializer, CustomerSerializer, BillSerializer
 from rest_framework import status, generics
 from rest_framework.response import Response
 from .models import Employee, Product, Customer
@@ -7,6 +7,7 @@ import jwt
 from datetime import timedelta, datetime
 from rest_framework.decorators import api_view
 from django.http.response import JsonResponse
+from rest_framework.views import APIView
 
 class EmployeeSignup(generics.CreateAPIView):
     serializer_class = EmployeeSerializer
@@ -88,4 +89,18 @@ def CustomerCRUD(request,pk=None):
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Customer was updated successfully!'}, status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+class BillAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = BillSerializer(data=request.data)
+        if serializer.is_valid():
+            product_id = serializer.validated_data['product']
+            quantity_sold = serializer.validated_data['quantity_sold']
+            product = Product.objects.get(pk=product_id)
+            total_amount = product.price * quantity_sold
+            
+            serializer.save(total_amount=total_amount)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

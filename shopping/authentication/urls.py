@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import EmployeeSignup, EmployeeLogin, ProductCRUD, CustomerCRUD
+from .views import EmployeeSignup, EmployeeLogin, ProductCRUD, CustomerCRUD, BillAPIView
 
 
 urlpatterns = [
@@ -10,4 +10,5 @@ urlpatterns = [
 
     path('customers', CustomerCRUD, name='customer_list_create'),
     path('customers/<int:pk>', CustomerCRUD, name='customer_detail'),
+    path('bill', BillAPIView.as_view(), name='bill-api'),
 ]

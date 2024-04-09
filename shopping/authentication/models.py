@@ -65,7 +65,7 @@ class Bill(models.Model):
     ]
     tax = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    payment_mode = models.CharField(max_length=10, choices=PAYMENT_MODE_CHOICES)
+    payment_mode = models.CharField(max_length=10, choices=PAYMENT_MODE_CHOICES, default='Cash')
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
     notes = models.TextField(blank=True)
 

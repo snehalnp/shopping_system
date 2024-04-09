@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Employee, Customer, Product
+from .models import Employee, Customer, Product, Bill
 import random
 
 
@@ -29,4 +29,9 @@ class ProductSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
+        fields = '__all__'
+
+class BillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bill
         fields = '__all__'

@@ -7,6 +7,8 @@ name = "pypi"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 psycopg2 = "*"
+pipfile = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
